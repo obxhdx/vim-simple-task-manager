@@ -1,0 +1,63 @@
+*vim-simple-task-manager.txt*  Minimalist plugin to manage to-do lists
+
+DESCRIPTION                                  *vim-simple-task-manager*
+
+This plugin defines a new filetype called |todo| and a few
+mappings to creating/updating to-do items.
+
+MAPPINGS                            *vim-simple-task-manager-mappings*
+
+All mappings use <Leader> and are specific to |Normal-mode|.
+
+                            *<Plug>(vim-simple-task-manager-new-task)*
+<Leader>tn               Create a new task.
+
+                         *<Plug>(vim-simple-task-manager-status-todo)*
+<Leader>tt               Update task status to |TODO| and saves
+                         buffer.
+
+                     *<Plug>(vim-simple-task-manager-status-progress)*
+<Leader>tp               Update task status to |INPROGRESS| and
+                         saves buffer.
+
+                         *<Plug>(vim-simple-task-manager-status-hold)*
+<Leader>th               Update task status to |HOLD| and saves
+                         buffer.
+
+                         *<Plug>(vim-simple-task-manager-status-done)*
+<Leader>td               Update task status to |DONE| and saves
+                         buffer.
+
+OPTIONS                              *vim-simple-task-manager-options*
+
+                      *g:simple_task_manager#disable_default_mappings*
+
+Disables the default mappings: >
+
+  let g:simple_task_manager#disable_default_mappings = 1 (default: 0)
+  nmap <c-i> <Plug>(vim-simple-task-manager-new-task) " And so on...
+
+COLORS                                *vim-simple-task-manager-colors*
+
+If you want to customize the default colors, use the following
+highlight groups: >
+
+  highlight def link todoProjectTitle ModeMsg
+  highlight def link todoHeading Title
+  highlight def link todoAtxMarker Comment
+  highlight def link todoAtxHeading Title
+
+  highlight def link todoPendingMarker WarningMsg
+  highlight def link todoProgressMarker Question
+  highlight def link todoHoldMarker Directory
+  highlight def link todoDoneMarker Comment
+
+  highlight def link todoPendingItem None
+  highlight def link todoProgressItem None
+  highlight def link todoHoldItem None
+  highlight def link todoDoneItem Comment
+
+  highlight def link todoListBullet Comment
+  highlight def link todoListNumber Comment
+
+vim:tw=78:et:ft=help:norl:
